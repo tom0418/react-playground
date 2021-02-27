@@ -1,15 +1,17 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import TodoItem from './TodoItem'
+import { getTodos } from '../redux/selectors'
 
-const TodoList = () => {
-  return (
-    <ul>
-      <li>test todo item1</li>
-      <li>test todo item2</li>
-      <li>test todo item3</li>
-      <TodoItem />
-    </ul>
-  )
-}
+const TodoList = ({ todos }) => (
+  <ul>
+    {todos && todos.length
+      ? todos.map((todo) => {
+        return <TodoItem key={`todo-${todo.id}`} todo={todo} />
+      })
+      : 'No todos, yay!'
+    }
+  </ul>
+)
 
-export default TodoList
+export default connect(state => ({ todos: getTodos(state) }))(TodoList)

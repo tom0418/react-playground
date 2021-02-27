@@ -1,6 +1,7 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
-const Todo = (todo) => (
+const TodoItem = ({ todo }) => (
   <li>
     {todo && todo.completed ? '👌' : '👋'}{' '}
     <span>
@@ -9,4 +10,6 @@ const Todo = (todo) => (
   </li>
 )
 
-export default Todo
+export default connect(
+  null
+)(TodoItem)
