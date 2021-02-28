@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { addTodo} from '../redux/actions'
+import { addTodo } from '../redux/actions'
 
 class AddTodo extends React.Component {
   constructor(props) {
@@ -24,7 +24,7 @@ class AddTodo extends React.Component {
           onChange={e => this.updateInput(e.target.value)}
           value={this.state.input}
         />
-        <button onClick={this.handleAddTodo}>
+        <button className='add-todo' onClick={this.handleAddTodo}>
           Add Todo
         </button>
       </div>
